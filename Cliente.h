@@ -19,8 +19,6 @@ public:
     Cliente(int dni, string nombre, string apellido);
 
     ~Cliente();
-
-    void mostrar();
 };
 
 

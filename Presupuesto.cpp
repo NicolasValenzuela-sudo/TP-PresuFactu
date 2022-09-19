@@ -9,24 +9,21 @@
 
 //using namespace std;
 
-Presupuesto::Presupuesto(int numeroPresupuesto, Fecha &fechaVencimiento, Cliente &cliente1, float porcentaje, float totalPresupuesto): fechaVencimiento(fechaVencimiento),
-                                            cliente(cliente1) {
+Presupuesto::Presupuesto(int numeroPresupuesto, Fecha fechaVencimiento, Fecha  fechaEmision, Cliente cliente, float porcentaje,Producto producto1) :
+                            fechaVencimiento(fechaVencimiento), fechaEmision(fechaEmision), cliente(cliente), producto(producto1) {
 
-    numeroPresupuesto = numeroPresupuesto;
-    //fechaVencimiento = fechaVencimiento;
+    this->numeroPresupuesto = numeroPresupuesto;
 
-    porcentaje = porcentaje;
-    totalPresupuesto = totalPresupuesto;
-
+    this->porcentaje = porcentaje;
+    this->totalPresupuesto = producto1.getPrecio();
 }
 
 Presupuesto::~Presupuesto() {
 
 }
-void Presupuesto::mostrar() {
-    cout << "Numero de presupuesto: " << this->numeroPresupuesto << endl;
-    cout << "Fecha de vencimiento: " << fechaVencimiento << endl;
-    cout << "Cliente: " << cliente << endl;
-    cout << "Porcentaje: " << this->porcentaje << endl;
-    cout << "Total presupuesto: " << this->totalPresupuesto << endl;
+
+void Presupuesto::setTotalPresu() {
+
+    this->totalPresupuesto = this->porcentaje * 100;
+
 }

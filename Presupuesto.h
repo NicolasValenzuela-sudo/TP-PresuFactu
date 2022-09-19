@@ -6,6 +6,7 @@
 #define TEMPLATECPP_PRESUPUESTO_H
 #include "Fecha.h"
 #include "Cliente.h"
+#include "Producto.h"
 #include <iostream>
 
 using namespace std;
@@ -14,15 +15,24 @@ class Presupuesto {
 private:
         int numeroPresupuesto;
         Fecha fechaVencimiento;
+        Fecha fechaEmision;
         Cliente cliente;
         float porcentaje;
+        Producto producto;
         float totalPresupuesto;
+
+
 public:
 
-    Presupuesto(int, Fecha, Cliente, float, float);
+    Presupuesto(int, Fecha, Fecha, Cliente, float,Producto);
     ~Presupuesto();
     Fecha getFechaVencimiento();
-    void mostrar();
+    void setTotalPresu();
+    int getPrecioProducto();
+    string getDescripcionProducto();
+
+
+
 };
 inline Fecha Presupuesto::getFechaVencimiento() {
         return fechaVencimiento;

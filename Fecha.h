@@ -22,7 +22,7 @@ public:
     int getMes();
     int getAnio();
 
-    void mostrar();
+
 };
 
 inline int Fecha::getDia() {

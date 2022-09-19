@@ -14,7 +14,3 @@ Fecha::Fecha(int dd, int mm, int aa) {
 
 Fecha::~Fecha() {}
 
-
-void Fecha::mostrar() {
-    cout << this->dd << "/" << this->mm << "/" << this->aa << endl;
-}
