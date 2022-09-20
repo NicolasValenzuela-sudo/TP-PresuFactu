@@ -1,31 +1,35 @@
 #include <iostream>
 #include "Fecha.h"
-#include "Cliente.h"
 #include "Presupuesto.h"
+#include "Facturacion.h"
+#include "Cliente.h"
+
+using namespace std;
 
 int main() {
 
-    using namespace std;
+    Fecha fechaEmisioPresu(12, 9, 2022);
 
-    Producto leche(1, "Leche", 100);
+    Fecha fechaVencPresu(16, 9, 2022);
 
-    Producto pan(2, "Pan", 50);
+    Fecha fechaEmisioFact(15, 10, 2022);
 
-    Producto arroz(3, "Arroz", 150);
-
-    Cliente cliente1(12345678, "Nicolas", "Gonzalez");
-
-    Fecha fechaEmision(12, 9, 2022);
-
-    Fecha fechaVen(13, 9, 2022);
-
-    Presupuesto presupuesto1(1, fechaVen, fechaEmision, cliente1, 100,leche);
+    Cliente cliente1(37948670, "Nicolas", "Valenzuela");
 
 
+    //cliente pide un presupuesto
 
+    Presupuesto presupuesto1(001, fechaEmisioPresu, fechaVencPresu,cliente1, 100);
+
+    //si lo acepta pide una factura
+
+    Facturacion factura1(0001, fechaEmisioFact, presupuesto1);
 
 
 
+    factura1.validacion();
+
+    factura1.mostrar();
 
     return 0;
 }

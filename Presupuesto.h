@@ -1,42 +1,40 @@
 //
-// Created by NICOLAS on 13/9/2022.
+// Created by NICOLAS on 19/9/2022.
 //
 
-#ifndef TEMPLATECPP_PRESUPUESTO_H
-#define TEMPLATECPP_PRESUPUESTO_H
+#ifndef PRUEBAS_PRESUPUESTO_H
+#define PRUEBAS_PRESUPUESTO_H
 #include "Fecha.h"
 #include "Cliente.h"
-#include "Producto.h"
-#include <iostream>
 
-using namespace std;
 class Presupuesto {
-
 private:
-        int numeroPresupuesto;
-        Fecha fechaVencimiento;
-        Fecha fechaEmision;
-        Cliente cliente;
-        float porcentaje;
-        Producto producto;
-        float totalPresupuesto;
+    int numero;
+    Fecha fechaEmision;
+    Fecha fechaVencimiento;
+    Cliente cliente;
 
-
+    int total;
 public:
-
-    Presupuesto(int, Fecha, Fecha, Cliente, float,Producto);
+    Presupuesto(int numero, Fecha fechaEmision,Fecha fechaVenc, Cliente cliente1, int total);
     ~Presupuesto();
-    Fecha getFechaVencimiento();
-    void setTotalPresu();
-    int getPrecioProducto();
-    string getDescripcionProducto();
+    int getDia();
+    int getMes();
+    int getAnio();
+    void mostrarCliente();
 
 
 
 };
-inline Fecha Presupuesto::getFechaVencimiento() {
-        return fechaVencimiento;
+inline int Presupuesto::getDia() {
+    return this->fechaVencimiento.getDia();
+}
+inline int Presupuesto::getMes() {
+    return this->fechaVencimiento.getMes();
+}
+inline int Presupuesto::getAnio() {
+    return this->fechaVencimiento.getAnio();
 }
 
 
-#endif //TEMPLATECPP_PRESUPUESTO_H
+#endif

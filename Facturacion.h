@@ -1,32 +1,36 @@
 //
-// Created by NICOLAS on 18/9/2022.
+// Created by NICOLAS on 19/9/2022.
 //
 
-#ifndef TEMPLATECPP_FACTURACION_H
-#define TEMPLATECPP_FACTURACION_H
+#ifndef PRUEBAS_FACTURACION_H
+#define PRUEBAS_FACTURACION_H
+
 #include "Fecha.h"
-#include "Cliente.h"
-#include "Producto.h"
+#include "Presupuesto.h"
 #include <iostream>
 
 class Facturacion {
 
-    private:
-    int numero;
-    Fecha fecha;
-    Cliente cliente;
-    Producto producto;
-    int cantidad;
-    float total;
+private:
+
+    int numeroFactura;
+
+    Fecha fechaEmisionFactura;
+
+    Presupuesto presupuesto;
 
 public:
-    Facturacion(int, Fecha, Cliente, Producto, int);
+
+    Facturacion(int numeroFactura, Fecha fechaEmisionFactura,Presupuesto presupuesto1);
+
     ~Facturacion();
-    int getNumero();
-    Fecha getFecha();
-    Cliente getCliente();
-    Producto getProducto();
+
+    void validacion();
+
+    void mostrar();
+
+    void calculoTotal();
 
 };
 
-#endif //TEMPLATECPP_FACTURACION_H
+#endif
