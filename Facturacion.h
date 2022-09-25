@@ -19,13 +19,15 @@ private:
 
     Presupuesto presupuesto;
 
+    int totalConIva;
+
 public:
 
     Facturacion(int numeroFactura, Fecha fechaEmisionFactura,Presupuesto presupuesto1);
 
     ~Facturacion();
 
-    void validacion();
+    bool validacion();
 
     void mostrar();
 

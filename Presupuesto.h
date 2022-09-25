@@ -6,6 +6,7 @@
 #define PRUEBAS_PRESUPUESTO_H
 #include "Fecha.h"
 #include "Cliente.h"
+#include "Producto.h"
 
 class Presupuesto {
 private:
@@ -13,15 +14,18 @@ private:
     Fecha fechaEmision;
     Fecha fechaVencimiento;
     Cliente cliente;
-
-    int total;
+    Producto producto1;
+    int cantidadProducto;
+    float total;
 public:
-    Presupuesto(int numero, Fecha fechaEmision,Fecha fechaVenc, Cliente cliente1, int total);
+    Presupuesto(int numero, Fecha fechaEmision,Fecha fechaVenc, Cliente cliente1, Producto producto1,int cantidad);
     ~Presupuesto();
     int getDia();
     int getMes();
     int getAnio();
     void mostrarCliente();
+    float setTotal();
+    float getTotal();
 
 
 
@@ -35,6 +39,11 @@ inline int Presupuesto::getMes() {
 inline int Presupuesto::getAnio() {
     return this->fechaVencimiento.getAnio();
 }
+inline float Presupuesto::setTotal() {
+    this->total = this->producto1.getPrecio() * this->cantidadProducto;
+
+}
+
 
 
 #endif

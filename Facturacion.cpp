@@ -16,14 +16,17 @@ Facturacion::Facturacion(int numeroFactura, Fecha fechaEmisionFactura,Presupuest
 }
 Facturacion::~Facturacion() {}
 
-void Facturacion::validacion() {
+bool Facturacion::validacion() {
 
     if((this->fechaEmisionFactura.getAnio() == this->presupuesto.getAnio()) && (this->fechaEmisionFactura.getMes() == this->presupuesto.getMes())&&
        ( this->fechaEmisionFactura.getDia()) < this->presupuesto.getDia()){
 
         cout << "La facturacion se encuentra en los limites de fecha, por ende es ACEPTADA" << endl;
+        Facturacion::calculoTotal();
+        return true;
     }else {
-        cout << "Facturacion RECHAZADA, fuera de limites de fecha estipulada" << endl;
+        cout << "Facturacion RECHAZADA, fuera de limites de fecha estipulada..NO SE GENERA FACTURA" << endl;
+        return false;
     }
 }
 void Facturacion::mostrar() {
@@ -32,6 +35,13 @@ void Facturacion::mostrar() {
     cout << "Numero de factura: " << this->numeroFactura << endl;
     cout << "Fecha de emision: " << this->fechaEmisionFactura.getDia() << "/" << this->fechaEmisionFactura.getMes() << "/" << this->fechaEmisionFactura.getAnio() << endl;
     cout << "Fecha de vencimiento: " << this->presupuesto.getDia() << "/" << this->presupuesto.getMes() << "/" << this->presupuesto.getAnio() << endl;
+    cout<<"Precio del producto: "<< this->totalConIva << endl;
     cout << "INFORMACION DEL CLIENTE: " << endl;
     this->presupuesto.mostrarCliente();
+}
+
+void Facturacion::calculoTotal() {
+
+    this->totalConIva = this->presupuesto.getTotal() * 1.21;
+
 }

@@ -19,6 +19,7 @@ class Producto {
     ~Producto();
     int getCodigo();
     string getDescripcion();
+
     float getPrecio();
 
 };
